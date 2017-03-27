@@ -2,8 +2,10 @@ package info.student;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
@@ -13,7 +15,8 @@ public class Employee
 {
 	
 @Id	
-@Column(name="ENO")
+@SequenceGenerator(name="EMP_SEQ",sequenceName="EMP_SEQ",allocationSize=1)
+@GeneratedValue(generator="EMP_SEQ",strategy=GenerationType.SEQUENCE)
 private  Integer eno;
 @Column
 private String name;
